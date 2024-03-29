@@ -1,16 +1,14 @@
 <script>
+    import HomePage from "./homePage.svelte";
+    import LevelOne from "./levelOne.svelte";
+    let homePageDisplay = false
+    function handleData(event) {
+        homePageDisplay = event.detail
+    }
 </script>
 
-<img class="bg" src="img/background.png" alt="background">
+<HomePage on:sendData={handleData}/>
 
-
-<style>
-    .bg {
-        display: block;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0%;
-        left: 0%;
-    }
-</style>
+{#if homePageDisplay === true}
+    <LevelOne />
+{/if}
